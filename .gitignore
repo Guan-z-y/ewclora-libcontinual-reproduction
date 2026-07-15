@@ -1,0 +1,29 @@
+# Data and experiment outputs
+data/
+log/
+logs/
+checkpoints/
+checkpoint/
+cache/
+.cache/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Model/checkpoint/archive files
+*.pth
+*.pt
+*.ckpt
+*.tar.gz
+*.zip
+
+# IDE/system files
+.DS_Store
+.vscode/
+.idea/
+
+# Local virtual environments
+.venv/
+.venv-3.8/
+venv/
