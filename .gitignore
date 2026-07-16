@@ -27,3 +27,9 @@ __pycache__/
 .venv/
 .venv-3.8/
 venv/
+
+# Keep small reproduction logs required by the course submission
+!reproduce/
+!reproduce/ewclora/
+!reproduce/ewclora/logs/
+!reproduce/ewclora/logs/*.log

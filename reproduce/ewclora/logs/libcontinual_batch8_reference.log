@@ -1,0 +1,710 @@
+{'augment': True,
+ 'backbone': {'kwargs': {'depth': 12,
+                         'embed_dim': 768,
+                         'image_size': 224,
+                         'mlp_ratio': 4.0,
+                         'model_name': 'vit_base_patch16_224_in21k',
+                         'norm_layer_eps': 1e-06,
+                         'num_heads': 12,
+                         'patch_size': 16,
+                         'pretrained': True,
+                         'qkv_bias': True,
+                         'rank': 10},
+              'name': 'vit_ewclora'},
+ 'batch_size': 8,
+ 'buffer': {'kwargs': {'batch_size': 8,
+                       'buffer_size': 0,
+                       'strategy': 'herding'},
+            'name': 'LinearBuffer'},
+ 'classifier': {'kwargs': {'embd_dim': 768,
+                           'fc_lrate': 0.005,
+                           'gamma': 1.0,
+                           'inc_cls_num': 10,
+                           'init_cls_num': 10,
+                           'lambda': 10000000.0,
+                           'task_num': 10},
+                'name': 'EWCLoRA'},
+ 'data_root': './data/cifar100',
+ 'dataset': 'binary_cifar100',
+ 'deterministic': True,
+ 'device_ids': ['0'],
+ 'epoch': 20,
+ 'eval_with_test': True,
+ 'image_size': 224,
+ 'inc_cls_num': 10,
+ 'includes': ['headers/data.yaml',
+              'headers/device.yaml',
+              'headers/model.yaml',
+              'headers/optimizer.yaml',
+              'headers/test.yaml'],
+ 'init_cls_num': 10,
+ 'lr_scheduler': {'kwargs': {'T_max': 20, 'eta_min': 0.0},
+                  'name': 'CosineAnnealingLR'},
+ 'n_gpu': 1,
+ 'num_workers': 0,
+ 'optimizer': {'kwargs': {'lr': 0.0005, 'weight_decay': 0.0}, 'name': 'Adam'},
+ 'pin_memory': False,
+ 'save_path': '',
+ 'seed': 0,
+ 'setting': 'task-agnostic',
+ 'task_num': 10,
+ 'test_trfms': [{'Resize': {'size': 224}},
+                {'ToTensor': {}},
+                {'Normalize': {'mean': [0.0, 0.0, 0.0],
+                               'std': [1.0, 1.0, 1.0]}}],
+ 'testing_per_task': False,
+ 'testing_times': 1,
+ 'total_cls_num': 100,
+ 'train_trfms': [{'RandomResizedCrop': {'size': 224}},
+                 {'RandomHorizontalFlip': {}},
+                 {'ToTensor': {}},
+                 {'Normalize': {'mean': [0.0, 0.0, 0.0],
+                                'std': [1.0, 1.0, 1.0]}}],
+ 'val_per_epoch': 20,
+ 'warmup': 3}
+Using pretrained model : vit_base_patch16_224_in21k
+Files already downloaded and verified
+Files already downloaded and verified
+================Task 0 Start!================
+Trainable Parameters for Task 0 : 376330 / 86612836 (0.43%)
+================Task 0 Training!================
+The training samples number : 5000
+================Train on train set================
+Epoch [0/20] Learning Rate [0.0005, 0.005]	|	Loss: 0.3570 	Average Acc: 89.70 
+================Train on train set================
+Epoch [1/20] Learning Rate [0.0004969220851487844, 0.0049692208514878445]	|	Loss: 0.2478 	Average Acc: 92.40 
+================Train on train set================
+Epoch [2/20] Learning Rate [0.0004877641290737884, 0.0048776412907378846]	|	Loss: 0.4069 	Average Acc: 89.52 
+================Train on train set================
+Epoch [3/20] Learning Rate [0.00047275163104709196, 0.00472751631047092]	|	Loss: 0.2118 	Average Acc: 93.60 
+================Train on train set================
+Epoch [4/20] Learning Rate [0.0004522542485937369, 0.004522542485937369]	|	Loss: 0.2188 	Average Acc: 93.74 
+================Train on train set================
+Epoch [5/20] Learning Rate [0.00042677669529663686, 0.004267766952966369]	|	Loss: 0.2042 	Average Acc: 93.78 
+================Train on train set================
+Epoch [6/20] Learning Rate [0.0003969463130731183, 0.003969463130731183]	|	Loss: 0.1982 	Average Acc: 94.16 
+================Train on train set================
+Epoch [7/20] Learning Rate [0.00036349762493488667, 0.0036349762493488673]	|	Loss: 0.1798 	Average Acc: 94.72 
+================Train on train set================
+Epoch [8/20] Learning Rate [0.00032725424859373687, 0.003272542485937369]	|	Loss: 0.1807 	Average Acc: 94.42 
+================Train on train set================
+Epoch [9/20] Learning Rate [0.00028910861626005774, 0.0028910861626005777]	|	Loss: 0.1385 	Average Acc: 95.56 
+================Train on train set================
+Epoch [10/20] Learning Rate [0.00025, 0.0025]	|	Loss: 0.1485 	Average Acc: 95.60 
+================Train on train set================
+Epoch [11/20] Learning Rate [0.00021089138373994235, 0.0021089138373994237]	|	Loss: 0.1398 	Average Acc: 95.66 
+================Train on train set================
+Epoch [12/20] Learning Rate [0.00017274575140626317, 0.0017274575140626318]	|	Loss: 0.1085 	Average Acc: 96.42 
+================Train on train set================
+Epoch [13/20] Learning Rate [0.00013650237506511331, 0.0013650237506511332]	|	Loss: 0.1032 	Average Acc: 96.54 
+================Train on train set================
+Epoch [14/20] Learning Rate [0.00010305368692688174, 0.0010305368692688174]	|	Loss: 0.0996 	Average Acc: 96.66 
+================Train on train set================
+Epoch [15/20] Learning Rate [7.322330470336313e-05, 0.0007322330470336313]	|	Loss: 0.0926 	Average Acc: 96.94 
+================Train on train set================
+Epoch [16/20] Learning Rate [4.774575140626316e-05, 0.00047745751406263163]	|	Loss: 0.0984 	Average Acc: 96.64 
+================Train on train set================
+Epoch [17/20] Learning Rate [2.7248368952908048e-05, 0.00027248368952908055]	|	Loss: 0.0876 	Average Acc: 97.44 
+================Train on train set================
+Epoch [18/20] Learning Rate [1.2235870926211616e-05, 0.00012235870926211617]	|	Loss: 0.0835 	Average Acc: 97.34 
+================Train on train set================
+Epoch [19/20] Learning Rate [3.077914851215585e-06, 3.077914851215585e-05]	|	Loss: 0.0898 	Average Acc: 97.24 
+================Validation on test set================
+ * [Batch] Last Average Acc: 99.30 (Best: 99.30)
+ * [Task] Last Average Acc: 99.30 (Best: 99.30)
+ * Forgetting: 0.000 (Best: 0.000)
+ * Backward Transfer: 0.00 (Best: 0.00)
+ * Per-Task Acc: [99.3]
+================Test 1/1 of Task 0!================
+ * [Batch] Last Average Acc: 99.30 (Best: 99.30)
+ * [Task] Last Average Acc: 99.30 (Best: 99.30)
+ * Forgetting: 0.000 (Best: 0.000)
+ * Backward Transfer: 0.00 (Best: 0.00)
+ * Per-Task Acc: [99.3]
+================Result of Task 0 Testing!================
+ * [Batch] Last Average Acc: 99.30 (Best: 99.30)
+ * [Task] Last Average Acc: 99.30 (Best: 99.30)
+ * Forgetting: 0.000 (Best: 0.000)
+ * Backward Transfer: 0.00 (Best: 0.00)
+ * Per-Task Acc: [99.3]
+================Task 1 Start!================
+Trainable Parameters for Task 1 : 376330 / 86612836 (0.43%)
+================Task 1 Training!================
+The training samples number : 5000
+================Train on train set================
+Epoch [0/20] Learning Rate [0.0005, 0.005]	|	Loss: 0.3659 	Average Acc: 89.00 
+================Train on train set================
+Epoch [1/20] Learning Rate [0.0004969220851487844, 0.0049692208514878445]	|	Loss: 0.2560 	Average Acc: 92.06 
+================Train on train set================
+Epoch [2/20] Learning Rate [0.0004877641290737884, 0.0048776412907378846]	|	Loss: 0.2542 	Average Acc: 92.46 
+================Train on train set================
+Epoch [3/20] Learning Rate [0.00047275163104709196, 0.00472751631047092]	|	Loss: 0.2546 	Average Acc: 92.38 
+================Train on train set================
+Epoch [4/20] Learning Rate [0.0004522542485937369, 0.004522542485937369]	|	Loss: 0.2304 	Average Acc: 92.86 
+================Train on train set================
+Epoch [5/20] Learning Rate [0.00042677669529663686, 0.004267766952966369]	|	Loss: 0.2292 	Average Acc: 93.52 
+================Train on train set================
+Epoch [6/20] Learning Rate [0.0003969463130731183, 0.003969463130731183]	|	Loss: 0.2118 	Average Acc: 93.38 
+================Train on train set================
+Epoch [7/20] Learning Rate [0.00036349762493488667, 0.0036349762493488673]	|	Loss: 0.2093 	Average Acc: 93.72 
+================Train on train set================
+Epoch [8/20] Learning Rate [0.00032725424859373687, 0.003272542485937369]	|	Loss: 0.2212 	Average Acc: 93.72 
+================Train on train set================
+Epoch [9/20] Learning Rate [0.00028910861626005774, 0.0028910861626005777]	|	Loss: 0.2058 	Average Acc: 93.74 
+================Train on train set================
+Epoch [10/20] Learning Rate [0.00025, 0.0025]	|	Loss: 0.1944 	Average Acc: 93.92 
+================Train on train set================
+Epoch [11/20] Learning Rate [0.00021089138373994235, 0.0021089138373994237]	|	Loss: 0.1741 	Average Acc: 94.32 
+================Train on train set================
+Epoch [12/20] Learning Rate [0.00017274575140626317, 0.0017274575140626318]	|	Loss: 0.1849 	Average Acc: 94.06 
+================Train on train set================
+Epoch [13/20] Learning Rate [0.00013650237506511331, 0.0013650237506511332]	|	Loss: 0.1723 	Average Acc: 94.22 
+================Train on train set================
+Epoch [14/20] Learning Rate [0.00010305368692688174, 0.0010305368692688174]	|	Loss: 0.1642 	Average Acc: 94.36 
+================Train on train set================
+Epoch [15/20] Learning Rate [7.322330470336313e-05, 0.0007322330470336313]	|	Loss: 0.1610 	Average Acc: 94.86 
+================Train on train set================
+Epoch [16/20] Learning Rate [4.774575140626316e-05, 0.00047745751406263163]	|	Loss: 0.1630 	Average Acc: 94.58 
+================Train on train set================
+Epoch [17/20] Learning Rate [2.7248368952908048e-05, 0.00027248368952908055]	|	Loss: 0.1579 	Average Acc: 94.86 
+================Train on train set================
+Epoch [18/20] Learning Rate [1.2235870926211616e-05, 0.00012235870926211617]	|	Loss: 0.1568 	Average Acc: 95.04 
+================Train on train set================
+Epoch [19/20] Learning Rate [3.077914851215585e-06, 3.077914851215585e-05]	|	Loss: 0.1583 	Average Acc: 94.78 
+================Validation on test set================
+ * [Batch] Last Average Acc: 96.00 (Best: 96.00)
+ * [Task] Last Average Acc: 96.00 (Best: 96.00)
+ * Forgetting: 0.000 (Best: 0.000)
+ * Backward Transfer: 0.00 (Best: 0.00)
+ * Per-Task Acc: [98.5, 93.5]
+================Test 1/1 of Task 1!================
+ * [Batch] Last Average Acc: 96.00 (Best: 96.00)
+ * [Task] Last Average Acc: 96.00 (Best: 96.00)
+ * Forgetting: 0.000 (Best: 0.000)
+ * Backward Transfer: 0.00 (Best: 0.00)
+ * Per-Task Acc: [98.5, 93.5]
+================Result of Task 1 Testing!================
+ * [Batch] Last Average Acc: 96.00 (Best: 96.00)
+ * [Task] Last Average Acc: 96.00 (Best: 96.00)
+ * Forgetting: 0.000 (Best: 0.000)
+ * Backward Transfer: 0.00 (Best: 0.00)
+ * Per-Task Acc: [98.5 93.5]
+================Task 2 Start!================
+Trainable Parameters for Task 2 : 376330 / 86612836 (0.43%)
+================Task 2 Training!================
+The training samples number : 5000
+================Train on train set================
+Epoch [0/20] Learning Rate [0.0005, 0.005]	|	Loss: 0.4108 	Average Acc: 89.36 
+================Train on train set================
+Epoch [1/20] Learning Rate [0.0004969220851487844, 0.0049692208514878445]	|	Loss: 0.2484 	Average Acc: 92.22 
+================Train on train set================
+Epoch [2/20] Learning Rate [0.0004877641290737884, 0.0048776412907378846]	|	Loss: 0.2426 	Average Acc: 92.20 
+================Train on train set================
+Epoch [3/20] Learning Rate [0.00047275163104709196, 0.00472751631047092]	|	Loss: 0.2282 	Average Acc: 93.34 
+================Train on train set================
+Epoch [4/20] Learning Rate [0.0004522542485937369, 0.004522542485937369]	|	Loss: 0.2358 	Average Acc: 92.58 
+================Train on train set================
+Epoch [5/20] Learning Rate [0.00042677669529663686, 0.004267766952966369]	|	Loss: 0.2124 	Average Acc: 93.64 
+================Train on train set================
+Epoch [6/20] Learning Rate [0.0003969463130731183, 0.003969463130731183]	|	Loss: 0.2041 	Average Acc: 93.72 
+================Train on train set================
+Epoch [7/20] Learning Rate [0.00036349762493488667, 0.0036349762493488673]	|	Loss: 0.1892 	Average Acc: 94.36 
+================Train on train set================
+Epoch [8/20] Learning Rate [0.00032725424859373687, 0.003272542485937369]	|	Loss: 0.2023 	Average Acc: 93.56 
+================Train on train set================
+Epoch [9/20] Learning Rate [0.00028910861626005774, 0.0028910861626005777]	|	Loss: 0.1656 	Average Acc: 94.80 
+================Train on train set================
+Epoch [10/20] Learning Rate [0.00025, 0.0025]	|	Loss: 0.1796 	Average Acc: 94.44 
+================Train on train set================
+Epoch [11/20] Learning Rate [0.00021089138373994235, 0.0021089138373994237]	|	Loss: 0.1717 	Average Acc: 94.68 
+================Train on train set================
+Epoch [12/20] Learning Rate [0.00017274575140626317, 0.0017274575140626318]	|	Loss: 0.1795 	Average Acc: 94.58 
+================Train on train set================
+Epoch [13/20] Learning Rate [0.00013650237506511331, 0.0013650237506511332]	|	Loss: 0.1773 	Average Acc: 94.50 
+================Train on train set================
+Epoch [14/20] Learning Rate [0.00010305368692688174, 0.0010305368692688174]	|	Loss: 0.1487 	Average Acc: 95.46 
+================Train on train set================
+Epoch [15/20] Learning Rate [7.322330470336313e-05, 0.0007322330470336313]	|	Loss: 0.1501 	Average Acc: 95.00 
+================Train on train set================
+Epoch [16/20] Learning Rate [4.774575140626316e-05, 0.00047745751406263163]	|	Loss: 0.1400 	Average Acc: 95.40 
+================Train on train set================
+Epoch [17/20] Learning Rate [2.7248368952908048e-05, 0.00027248368952908055]	|	Loss: 0.1439 	Average Acc: 95.34 
+================Train on train set================
+Epoch [18/20] Learning Rate [1.2235870926211616e-05, 0.00012235870926211617]	|	Loss: 0.1524 	Average Acc: 94.98 
+================Train on train set================
+Epoch [19/20] Learning Rate [3.077914851215585e-06, 3.077914851215585e-05]	|	Loss: 0.1484 	Average Acc: 95.16 
+================Validation on test set================
+ * [Batch] Last Average Acc: 94.10 (Best: 94.10)
+ * [Task] Last Average Acc: 94.10 (Best: 94.10)
+ * Forgetting: 0.950 (Best: 0.950)
+ * Backward Transfer: -0.63 (Best: -0.63)
+ * Per-Task Acc: [97.4, 91.1, 93.8]
+================Test 1/1 of Task 2!================
+ * [Batch] Last Average Acc: 94.10 (Best: 94.10)
+ * [Task] Last Average Acc: 94.10 (Best: 94.10)
+ * Forgetting: 0.950 (Best: 0.950)
+ * Backward Transfer: -0.63 (Best: -0.63)
+ * Per-Task Acc: [97.4, 91.1, 93.8]
+================Result of Task 2 Testing!================
+ * [Batch] Last Average Acc: 94.10 (Best: 94.10)
+ * [Task] Last Average Acc: 94.10 (Best: 94.10)
+ * Forgetting: 0.950 (Best: 0.950)
+ * Backward Transfer: -0.63 (Best: -0.63)
+ * Per-Task Acc: [97.4 91.1 93.8]
+================Task 3 Start!================
+Trainable Parameters for Task 3 : 376330 / 86612836 (0.43%)
+================Task 3 Training!================
+The training samples number : 5000
+================Train on train set================
+Epoch [0/20] Learning Rate [0.0005, 0.005]	|	Loss: 0.4346 	Average Acc: 90.70 
+================Train on train set================
+Epoch [1/20] Learning Rate [0.0004969220851487844, 0.0049692208514878445]	|	Loss: 0.2493 	Average Acc: 92.28 
+================Train on train set================
+Epoch [2/20] Learning Rate [0.0004877641290737884, 0.0048776412907378846]	|	Loss: 0.2469 	Average Acc: 92.40 
+================Train on train set================
+Epoch [3/20] Learning Rate [0.00047275163104709196, 0.00472751631047092]	|	Loss: 0.2310 	Average Acc: 93.06 
+================Train on train set================
+Epoch [4/20] Learning Rate [0.0004522542485937369, 0.004522542485937369]	|	Loss: 0.2301 	Average Acc: 93.16 
+================Train on train set================
+Epoch [5/20] Learning Rate [0.00042677669529663686, 0.004267766952966369]	|	Loss: 0.2098 	Average Acc: 93.84 
+================Train on train set================
+Epoch [6/20] Learning Rate [0.0003969463130731183, 0.003969463130731183]	|	Loss: 0.1975 	Average Acc: 94.00 
+================Train on train set================
+Epoch [7/20] Learning Rate [0.00036349762493488667, 0.0036349762493488673]	|	Loss: 0.1918 	Average Acc: 93.94 
+================Train on train set================
+Epoch [8/20] Learning Rate [0.00032725424859373687, 0.003272542485937369]	|	Loss: 0.2068 	Average Acc: 93.80 
+================Train on train set================
+Epoch [9/20] Learning Rate [0.00028910861626005774, 0.0028910861626005777]	|	Loss: 0.1926 	Average Acc: 94.36 
+================Train on train set================
+Epoch [10/20] Learning Rate [0.00025, 0.0025]	|	Loss: 0.1779 	Average Acc: 94.54 
+================Train on train set================
+Epoch [11/20] Learning Rate [0.00021089138373994235, 0.0021089138373994237]	|	Loss: 0.1666 	Average Acc: 94.70 
+================Train on train set================
+Epoch [12/20] Learning Rate [0.00017274575140626317, 0.0017274575140626318]	|	Loss: 0.1504 	Average Acc: 95.40 
+================Train on train set================
+Epoch [13/20] Learning Rate [0.00013650237506511331, 0.0013650237506511332]	|	Loss: 0.1549 	Average Acc: 94.86 
+================Train on train set================
+Epoch [14/20] Learning Rate [0.00010305368692688174, 0.0010305368692688174]	|	Loss: 0.1643 	Average Acc: 94.86 
+================Train on train set================
+Epoch [15/20] Learning Rate [7.322330470336313e-05, 0.0007322330470336313]	|	Loss: 0.1631 	Average Acc: 94.88 
+================Train on train set================
+Epoch [16/20] Learning Rate [4.774575140626316e-05, 0.00047745751406263163]	|	Loss: 0.1464 	Average Acc: 95.28 
+================Train on train set================
+Epoch [17/20] Learning Rate [2.7248368952908048e-05, 0.00027248368952908055]	|	Loss: 0.1682 	Average Acc: 94.46 
+================Train on train set================
+Epoch [18/20] Learning Rate [1.2235870926211616e-05, 0.00012235870926211617]	|	Loss: 0.1461 	Average Acc: 95.46 
+================Train on train set================
+Epoch [19/20] Learning Rate [3.077914851215585e-06, 3.077914851215585e-05]	|	Loss: 0.1396 	Average Acc: 95.34 
+================Validation on test set================
+ * [Batch] Last Average Acc: 92.68 (Best: 92.68)
+ * [Task] Last Average Acc: 92.68 (Best: 92.68)
+ * Forgetting: 2.600 (Best: 2.600)
+ * Backward Transfer: -1.62 (Best: -1.62)
+ * Per-Task Acc: [96.9, 88.1, 93.3, 92.4]
+================Test 1/1 of Task 3!================
+ * [Batch] Last Average Acc: 92.68 (Best: 92.68)
+ * [Task] Last Average Acc: 92.68 (Best: 92.68)
+ * Forgetting: 2.600 (Best: 2.600)
+ * Backward Transfer: -1.62 (Best: -1.62)
+ * Per-Task Acc: [96.9, 88.1, 93.3, 92.4]
+================Result of Task 3 Testing!================
+ * [Batch] Last Average Acc: 92.68 (Best: 92.68)
+ * [Task] Last Average Acc: 92.68 (Best: 92.68)
+ * Forgetting: 2.600 (Best: 2.600)
+ * Backward Transfer: -1.62 (Best: -1.62)
+ * Per-Task Acc: [96.9 88.1 93.3 92.4]
+================Task 4 Start!================
+Trainable Parameters for Task 4 : 376330 / 86612836 (0.43%)
+================Task 4 Training!================
+The training samples number : 5000
+================Train on train set================
+Epoch [0/20] Learning Rate [0.0005, 0.005]	|	Loss: 0.4851 	Average Acc: 90.48 
+================Train on train set================
+Epoch [1/20] Learning Rate [0.0004969220851487844, 0.0049692208514878445]	|	Loss: 0.2458 	Average Acc: 92.18 
+================Train on train set================
+Epoch [2/20] Learning Rate [0.0004877641290737884, 0.0048776412907378846]	|	Loss: 0.2284 	Average Acc: 92.68 
+================Train on train set================
+Epoch [3/20] Learning Rate [0.00047275163104709196, 0.00472751631047092]	|	Loss: 0.1885 	Average Acc: 94.32 
+================Train on train set================
+Epoch [4/20] Learning Rate [0.0004522542485937369, 0.004522542485937369]	|	Loss: 0.2091 	Average Acc: 93.72 
+================Train on train set================
+Epoch [5/20] Learning Rate [0.00042677669529663686, 0.004267766952966369]	|	Loss: 0.2170 	Average Acc: 93.36 
+================Train on train set================
+Epoch [6/20] Learning Rate [0.0003969463130731183, 0.003969463130731183]	|	Loss: 0.2059 	Average Acc: 94.06 
+================Train on train set================
+Epoch [7/20] Learning Rate [0.00036349762493488667, 0.0036349762493488673]	|	Loss: 0.1866 	Average Acc: 94.18 
+================Train on train set================
+Epoch [8/20] Learning Rate [0.00032725424859373687, 0.003272542485937369]	|	Loss: 0.1899 	Average Acc: 94.08 
+================Train on train set================
+Epoch [9/20] Learning Rate [0.00028910861626005774, 0.0028910861626005777]	|	Loss: 0.1758 	Average Acc: 94.22 
+================Train on train set================
+Epoch [10/20] Learning Rate [0.00025, 0.0025]	|	Loss: 0.1825 	Average Acc: 94.26 
+================Train on train set================
+Epoch [11/20] Learning Rate [0.00021089138373994235, 0.0021089138373994237]	|	Loss: 0.1541 	Average Acc: 95.24 
+================Train on train set================
+Epoch [12/20] Learning Rate [0.00017274575140626317, 0.0017274575140626318]	|	Loss: 0.1453 	Average Acc: 95.12 
+================Train on train set================
+Epoch [13/20] Learning Rate [0.00013650237506511331, 0.0013650237506511332]	|	Loss: 0.1548 	Average Acc: 95.18 
+================Train on train set================
+Epoch [14/20] Learning Rate [0.00010305368692688174, 0.0010305368692688174]	|	Loss: 0.1497 	Average Acc: 95.20 
+================Train on train set================
+Epoch [15/20] Learning Rate [7.322330470336313e-05, 0.0007322330470336313]	|	Loss: 0.1382 	Average Acc: 95.56 
+================Train on train set================
+Epoch [16/20] Learning Rate [4.774575140626316e-05, 0.00047745751406263163]	|	Loss: 0.1331 	Average Acc: 95.64 
+================Train on train set================
+Epoch [17/20] Learning Rate [2.7248368952908048e-05, 0.00027248368952908055]	|	Loss: 0.1337 	Average Acc: 95.56 
+================Train on train set================
+Epoch [18/20] Learning Rate [1.2235870926211616e-05, 0.00012235870926211617]	|	Loss: 0.1431 	Average Acc: 95.38 
+================Train on train set================
+Epoch [19/20] Learning Rate [3.077914851215585e-06, 3.077914851215585e-05]	|	Loss: 0.1453 	Average Acc: 95.24 
+================Validation on test set================
+ * [Batch] Last Average Acc: 90.82 (Best: 90.82)
+ * [Task] Last Average Acc: 90.82 (Best: 90.82)
+ * Forgetting: 3.625 (Best: 3.625)
+ * Backward Transfer: -2.42 (Best: -2.42)
+ * Per-Task Acc: [96.0, 84.9, 91.2, 90.4, 91.6]
+================Test 1/1 of Task 4!================
+ * [Batch] Last Average Acc: 90.82 (Best: 90.82)
+ * [Task] Last Average Acc: 90.82 (Best: 90.82)
+ * Forgetting: 3.625 (Best: 3.625)
+ * Backward Transfer: -2.42 (Best: -2.42)
+ * Per-Task Acc: [96.0, 84.9, 91.2, 90.4, 91.6]
+================Result of Task 4 Testing!================
+ * [Batch] Last Average Acc: 90.82 (Best: 90.82)
+ * [Task] Last Average Acc: 90.82 (Best: 90.82)
+ * Forgetting: 3.625 (Best: 3.625)
+ * Backward Transfer: -2.42 (Best: -2.42)
+ * Per-Task Acc: [96.  84.9 91.2 90.4 91.6]
+================Task 5 Start!================
+Trainable Parameters for Task 5 : 376330 / 86612836 (0.43%)
+================Task 5 Training!================
+The training samples number : 5000
+================Train on train set================
+Epoch [0/20] Learning Rate [0.0005, 0.005]	|	Loss: 0.5531 	Average Acc: 89.14 
+================Train on train set================
+Epoch [1/20] Learning Rate [0.0004969220851487844, 0.0049692208514878445]	|	Loss: 0.2688 	Average Acc: 90.94 
+================Train on train set================
+Epoch [2/20] Learning Rate [0.0004877641290737884, 0.0048776412907378846]	|	Loss: 0.2323 	Average Acc: 92.08 
+================Train on train set================
+Epoch [3/20] Learning Rate [0.00047275163104709196, 0.00472751631047092]	|	Loss: 0.2520 	Average Acc: 92.06 
+================Train on train set================
+Epoch [4/20] Learning Rate [0.0004522542485937369, 0.004522542485937369]	|	Loss: 0.2668 	Average Acc: 91.20 
+================Train on train set================
+Epoch [5/20] Learning Rate [0.00042677669529663686, 0.004267766952966369]	|	Loss: 0.2280 	Average Acc: 92.32 
+================Train on train set================
+Epoch [6/20] Learning Rate [0.0003969463130731183, 0.003969463130731183]	|	Loss: 0.2173 	Average Acc: 92.84 
+================Train on train set================
+Epoch [7/20] Learning Rate [0.00036349762493488667, 0.0036349762493488673]	|	Loss: 0.2081 	Average Acc: 93.30 
+================Train on train set================
+Epoch [8/20] Learning Rate [0.00032725424859373687, 0.003272542485937369]	|	Loss: 0.2127 	Average Acc: 92.74 
+================Train on train set================
+Epoch [9/20] Learning Rate [0.00028910861626005774, 0.0028910861626005777]	|	Loss: 0.1938 	Average Acc: 93.74 
+================Train on train set================
+Epoch [10/20] Learning Rate [0.00025, 0.0025]	|	Loss: 0.2057 	Average Acc: 93.30 
+================Train on train set================
+Epoch [11/20] Learning Rate [0.00021089138373994235, 0.0021089138373994237]	|	Loss: 0.1997 	Average Acc: 93.60 
+================Train on train set================
+Epoch [12/20] Learning Rate [0.00017274575140626317, 0.0017274575140626318]	|	Loss: 0.1827 	Average Acc: 93.72 
+================Train on train set================
+Epoch [13/20] Learning Rate [0.00013650237506511331, 0.0013650237506511332]	|	Loss: 0.1779 	Average Acc: 93.80 
+================Train on train set================
+Epoch [14/20] Learning Rate [0.00010305368692688174, 0.0010305368692688174]	|	Loss: 0.1624 	Average Acc: 94.62 
+================Train on train set================
+Epoch [15/20] Learning Rate [7.322330470336313e-05, 0.0007322330470336313]	|	Loss: 0.1472 	Average Acc: 94.44 
+================Train on train set================
+Epoch [16/20] Learning Rate [4.774575140626316e-05, 0.00047745751406263163]	|	Loss: 0.1498 	Average Acc: 94.60 
+================Train on train set================
+Epoch [17/20] Learning Rate [2.7248368952908048e-05, 0.00027248368952908055]	|	Loss: 0.1690 	Average Acc: 94.44 
+================Train on train set================
+Epoch [18/20] Learning Rate [1.2235870926211616e-05, 0.00012235870926211617]	|	Loss: 0.1569 	Average Acc: 94.32 
+================Train on train set================
+Epoch [19/20] Learning Rate [3.077914851215585e-06, 3.077914851215585e-05]	|	Loss: 0.1608 	Average Acc: 94.34 
+================Validation on test set================
+ * [Batch] Last Average Acc: 88.17 (Best: 88.17)
+ * [Task] Last Average Acc: 88.17 (Best: 88.17)
+ * Forgetting: 4.120 (Best: 4.120)
+ * Backward Transfer: -2.99 (Best: -2.99)
+ * Per-Task Acc: [95.5, 83.8, 90.4, 88.7, 91.2, 79.4]
+================Test 1/1 of Task 5!================
+ * [Batch] Last Average Acc: 88.17 (Best: 88.17)
+ * [Task] Last Average Acc: 88.17 (Best: 88.17)
+ * Forgetting: 4.120 (Best: 4.120)
+ * Backward Transfer: -2.99 (Best: -2.99)
+ * Per-Task Acc: [95.5, 83.8, 90.4, 88.7, 91.2, 79.4]
+================Result of Task 5 Testing!================
+ * [Batch] Last Average Acc: 88.17 (Best: 88.17)
+ * [Task] Last Average Acc: 88.17 (Best: 88.17)
+ * Forgetting: 4.120 (Best: 4.120)
+ * Backward Transfer: -2.99 (Best: -2.99)
+ * Per-Task Acc: [95.5 83.8 90.4 88.7 91.2 79.4]
+================Task 6 Start!================
+Trainable Parameters for Task 6 : 376330 / 86612836 (0.43%)
+================Task 6 Training!================
+The training samples number : 5000
+================Train on train set================
+Epoch [0/20] Learning Rate [0.0005, 0.005]	|	Loss: 0.6133 	Average Acc: 88.76 
+================Train on train set================
+Epoch [1/20] Learning Rate [0.0004969220851487844, 0.0049692208514878445]	|	Loss: 0.2780 	Average Acc: 90.84 
+================Train on train set================
+Epoch [2/20] Learning Rate [0.0004877641290737884, 0.0048776412907378846]	|	Loss: 0.2557 	Average Acc: 91.64 
+================Train on train set================
+Epoch [3/20] Learning Rate [0.00047275163104709196, 0.00472751631047092]	|	Loss: 0.2545 	Average Acc: 91.98 
+================Train on train set================
+Epoch [4/20] Learning Rate [0.0004522542485937369, 0.004522542485937369]	|	Loss: 0.2419 	Average Acc: 92.16 
+================Train on train set================
+Epoch [5/20] Learning Rate [0.00042677669529663686, 0.004267766952966369]	|	Loss: 0.2348 	Average Acc: 92.82 
+================Train on train set================
+Epoch [6/20] Learning Rate [0.0003969463130731183, 0.003969463130731183]	|	Loss: 0.2127 	Average Acc: 93.18 
+================Train on train set================
+Epoch [7/20] Learning Rate [0.00036349762493488667, 0.0036349762493488673]	|	Loss: 0.2243 	Average Acc: 92.76 
+================Train on train set================
+Epoch [8/20] Learning Rate [0.00032725424859373687, 0.003272542485937369]	|	Loss: 0.2315 	Average Acc: 92.58 
+================Train on train set================
+Epoch [9/20] Learning Rate [0.00028910861626005774, 0.0028910861626005777]	|	Loss: 0.2045 	Average Acc: 93.24 
+================Train on train set================
+Epoch [10/20] Learning Rate [0.00025, 0.0025]	|	Loss: 0.2040 	Average Acc: 93.62 
+================Train on train set================
+Epoch [11/20] Learning Rate [0.00021089138373994235, 0.0021089138373994237]	|	Loss: 0.1716 	Average Acc: 94.44 
+================Train on train set================
+Epoch [12/20] Learning Rate [0.00017274575140626317, 0.0017274575140626318]	|	Loss: 0.1834 	Average Acc: 93.96 
+================Train on train set================
+Epoch [13/20] Learning Rate [0.00013650237506511331, 0.0013650237506511332]	|	Loss: 0.1745 	Average Acc: 94.28 
+================Train on train set================
+Epoch [14/20] Learning Rate [0.00010305368692688174, 0.0010305368692688174]	|	Loss: 0.1692 	Average Acc: 94.44 
+================Train on train set================
+Epoch [15/20] Learning Rate [7.322330470336313e-05, 0.0007322330470336313]	|	Loss: 0.1647 	Average Acc: 94.42 
+================Train on train set================
+Epoch [16/20] Learning Rate [4.774575140626316e-05, 0.00047745751406263163]	|	Loss: 0.1551 	Average Acc: 94.68 
+================Train on train set================
+Epoch [17/20] Learning Rate [2.7248368952908048e-05, 0.00027248368952908055]	|	Loss: 0.1781 	Average Acc: 94.36 
+================Train on train set================
+Epoch [18/20] Learning Rate [1.2235870926211616e-05, 0.00012235870926211617]	|	Loss: 0.1533 	Average Acc: 95.00 
+================Train on train set================
+Epoch [19/20] Learning Rate [3.077914851215585e-06, 3.077914851215585e-05]	|	Loss: 0.1648 	Average Acc: 94.38 
+================Validation on test set================
+ * [Batch] Last Average Acc: 87.37 (Best: 87.37)
+ * [Task] Last Average Acc: 87.37 (Best: 87.37)
+ * Forgetting: 4.383 (Best: 4.383)
+ * Backward Transfer: -3.39 (Best: -3.39)
+ * Per-Task Acc: [94.8, 81.2, 89.5, 87.8, 91.0, 78.5, 88.8]
+================Test 1/1 of Task 6!================
+ * [Batch] Last Average Acc: 87.37 (Best: 87.37)
+ * [Task] Last Average Acc: 87.37 (Best: 87.37)
+ * Forgetting: 4.383 (Best: 4.383)
+ * Backward Transfer: -3.39 (Best: -3.39)
+ * Per-Task Acc: [94.8, 81.2, 89.5, 87.8, 91.0, 78.5, 88.8]
+================Result of Task 6 Testing!================
+ * [Batch] Last Average Acc: 87.37 (Best: 87.37)
+ * [Task] Last Average Acc: 87.37 (Best: 87.37)
+ * Forgetting: 4.383 (Best: 4.383)
+ * Backward Transfer: -3.39 (Best: -3.39)
+ * Per-Task Acc: [94.8 81.2 89.5 87.8 91.  78.5 88.8]
+================Task 7 Start!================
+Trainable Parameters for Task 7 : 376330 / 86612836 (0.43%)
+================Task 7 Training!================
+The training samples number : 5000
+================Train on train set================
+Epoch [0/20] Learning Rate [0.0005, 0.005]	|	Loss: 0.6528 	Average Acc: 89.76 
+================Train on train set================
+Epoch [1/20] Learning Rate [0.0004969220851487844, 0.0049692208514878445]	|	Loss: 0.2564 	Average Acc: 91.96 
+================Train on train set================
+Epoch [2/20] Learning Rate [0.0004877641290737884, 0.0048776412907378846]	|	Loss: 0.2533 	Average Acc: 92.08 
+================Train on train set================
+Epoch [3/20] Learning Rate [0.00047275163104709196, 0.00472751631047092]	|	Loss: 0.2215 	Average Acc: 93.22 
+================Train on train set================
+Epoch [4/20] Learning Rate [0.0004522542485937369, 0.004522542485937369]	|	Loss: 0.2167 	Average Acc: 93.16 
+================Train on train set================
+Epoch [5/20] Learning Rate [0.00042677669529663686, 0.004267766952966369]	|	Loss: 0.1995 	Average Acc: 93.44 
+================Train on train set================
+Epoch [6/20] Learning Rate [0.0003969463130731183, 0.003969463130731183]	|	Loss: 0.2060 	Average Acc: 93.56 
+================Train on train set================
+Epoch [7/20] Learning Rate [0.00036349762493488667, 0.0036349762493488673]	|	Loss: 0.2086 	Average Acc: 93.56 
+================Train on train set================
+Epoch [8/20] Learning Rate [0.00032725424859373687, 0.003272542485937369]	|	Loss: 0.2093 	Average Acc: 93.58 
+================Train on train set================
+Epoch [9/20] Learning Rate [0.00028910861626005774, 0.0028910861626005777]	|	Loss: 0.1813 	Average Acc: 94.06 
+================Train on train set================
+Epoch [10/20] Learning Rate [0.00025, 0.0025]	|	Loss: 0.1895 	Average Acc: 93.78 
+================Train on train set================
+Epoch [11/20] Learning Rate [0.00021089138373994235, 0.0021089138373994237]	|	Loss: 0.1704 	Average Acc: 94.40 
+================Train on train set================
+Epoch [12/20] Learning Rate [0.00017274575140626317, 0.0017274575140626318]	|	Loss: 0.1686 	Average Acc: 94.56 
+================Train on train set================
+Epoch [13/20] Learning Rate [0.00013650237506511331, 0.0013650237506511332]	|	Loss: 0.1717 	Average Acc: 94.56 
+================Train on train set================
+Epoch [14/20] Learning Rate [0.00010305368692688174, 0.0010305368692688174]	|	Loss: 0.1531 	Average Acc: 94.84 
+================Train on train set================
+Epoch [15/20] Learning Rate [7.322330470336313e-05, 0.0007322330470336313]	|	Loss: 0.1523 	Average Acc: 94.88 
+================Train on train set================
+Epoch [16/20] Learning Rate [4.774575140626316e-05, 0.00047745751406263163]	|	Loss: 0.1450 	Average Acc: 95.10 
+================Train on train set================
+Epoch [17/20] Learning Rate [2.7248368952908048e-05, 0.00027248368952908055]	|	Loss: 0.1706 	Average Acc: 94.50 
+================Train on train set================
+Epoch [18/20] Learning Rate [1.2235870926211616e-05, 0.00012235870926211617]	|	Loss: 0.1519 	Average Acc: 95.20 
+================Train on train set================
+Epoch [19/20] Learning Rate [3.077914851215585e-06, 3.077914851215585e-05]	|	Loss: 0.1537 	Average Acc: 94.68 
+================Validation on test set================
+ * [Batch] Last Average Acc: 86.49 (Best: 86.49)
+ * [Task] Last Average Acc: 86.49 (Best: 86.49)
+ * Forgetting: 4.371 (Best: 4.371)
+ * Backward Transfer: -3.63 (Best: -3.63)
+ * Per-Task Acc: [94.2, 80.8, 88.6, 87.6, 90.4, 77.8, 87.2, 85.3]
+================Test 1/1 of Task 7!================
+ * [Batch] Last Average Acc: 86.49 (Best: 86.49)
+ * [Task] Last Average Acc: 86.49 (Best: 86.49)
+ * Forgetting: 4.371 (Best: 4.371)
+ * Backward Transfer: -3.63 (Best: -3.63)
+ * Per-Task Acc: [94.2, 80.8, 88.6, 87.6, 90.4, 77.8, 87.2, 85.3]
+================Result of Task 7 Testing!================
+ * [Batch] Last Average Acc: 86.49 (Best: 86.49)
+ * [Task] Last Average Acc: 86.49 (Best: 86.49)
+ * Forgetting: 4.371 (Best: 4.371)
+ * Backward Transfer: -3.63 (Best: -3.63)
+ * Per-Task Acc: [94.2 80.8 88.6 87.6 90.4 77.8 87.2 85.3]
+================Task 8 Start!================
+Trainable Parameters for Task 8 : 376330 / 86612836 (0.43%)
+================Task 8 Training!================
+The training samples number : 5000
+================Train on train set================
+Epoch [0/20] Learning Rate [0.0005, 0.005]	|	Loss: 0.6534 	Average Acc: 91.02 
+================Train on train set================
+Epoch [1/20] Learning Rate [0.0004969220851487844, 0.0049692208514878445]	|	Loss: 0.2402 	Average Acc: 92.28 
+================Train on train set================
+Epoch [2/20] Learning Rate [0.0004877641290737884, 0.0048776412907378846]	|	Loss: 0.2136 	Average Acc: 93.20 
+================Train on train set================
+Epoch [3/20] Learning Rate [0.00047275163104709196, 0.00472751631047092]	|	Loss: 0.2229 	Average Acc: 93.22 
+================Train on train set================
+Epoch [4/20] Learning Rate [0.0004522542485937369, 0.004522542485937369]	|	Loss: 0.2146 	Average Acc: 93.48 
+================Train on train set================
+Epoch [5/20] Learning Rate [0.00042677669529663686, 0.004267766952966369]	|	Loss: 0.2034 	Average Acc: 93.68 
+================Train on train set================
+Epoch [6/20] Learning Rate [0.0003969463130731183, 0.003969463130731183]	|	Loss: 0.2096 	Average Acc: 93.38 
+================Train on train set================
+Epoch [7/20] Learning Rate [0.00036349762493488667, 0.0036349762493488673]	|	Loss: 0.1831 	Average Acc: 94.26 
+================Train on train set================
+Epoch [8/20] Learning Rate [0.00032725424859373687, 0.003272542485937369]	|	Loss: 0.1820 	Average Acc: 94.36 
+================Train on train set================
+Epoch [9/20] Learning Rate [0.00028910861626005774, 0.0028910861626005777]	|	Loss: 0.1784 	Average Acc: 94.48 
+================Train on train set================
+Epoch [10/20] Learning Rate [0.00025, 0.0025]	|	Loss: 0.1483 	Average Acc: 95.16 
+================Train on train set================
+Epoch [11/20] Learning Rate [0.00021089138373994235, 0.0021089138373994237]	|	Loss: 0.1419 	Average Acc: 95.12 
+================Train on train set================
+Epoch [12/20] Learning Rate [0.00017274575140626317, 0.0017274575140626318]	|	Loss: 0.1566 	Average Acc: 95.08 
+================Train on train set================
+Epoch [13/20] Learning Rate [0.00013650237506511331, 0.0013650237506511332]	|	Loss: 0.1561 	Average Acc: 95.10 
+================Train on train set================
+Epoch [14/20] Learning Rate [0.00010305368692688174, 0.0010305368692688174]	|	Loss: 0.1407 	Average Acc: 95.12 
+================Train on train set================
+Epoch [15/20] Learning Rate [7.322330470336313e-05, 0.0007322330470336313]	|	Loss: 0.1306 	Average Acc: 95.74 
+================Train on train set================
+Epoch [16/20] Learning Rate [4.774575140626316e-05, 0.00047745751406263163]	|	Loss: 0.1343 	Average Acc: 95.70 
+================Train on train set================
+Epoch [17/20] Learning Rate [2.7248368952908048e-05, 0.00027248368952908055]	|	Loss: 0.1268 	Average Acc: 95.62 
+================Train on train set================
+Epoch [18/20] Learning Rate [1.2235870926211616e-05, 0.00012235870926211617]	|	Loss: 0.1337 	Average Acc: 95.74 
+================Train on train set================
+Epoch [19/20] Learning Rate [3.077914851215585e-06, 3.077914851215585e-05]	|	Loss: 0.1359 	Average Acc: 95.48 
+================Validation on test set================
+ * [Batch] Last Average Acc: 86.33 (Best: 86.33)
+ * [Task] Last Average Acc: 86.33 (Best: 86.33)
+ * Forgetting: 4.837 (Best: 4.837)
+ * Backward Transfer: -3.90 (Best: -3.90)
+ * Per-Task Acc: [93.9, 80.1, 88.0, 86.4, 89.0, 77.2, 85.5, 85.1, 91.8]
+================Test 1/1 of Task 8!================
+ * [Batch] Last Average Acc: 86.33 (Best: 86.33)
+ * [Task] Last Average Acc: 86.33 (Best: 86.33)
+ * Forgetting: 4.837 (Best: 4.837)
+ * Backward Transfer: -3.90 (Best: -3.90)
+ * Per-Task Acc: [93.9, 80.1, 88.0, 86.4, 89.0, 77.2, 85.5, 85.1, 91.8]
+================Result of Task 8 Testing!================
+ * [Batch] Last Average Acc: 86.33 (Best: 86.33)
+ * [Task] Last Average Acc: 86.33 (Best: 86.33)
+ * Forgetting: 4.837 (Best: 4.837)
+ * Backward Transfer: -3.90 (Best: -3.90)
+ * Per-Task Acc: [93.9 80.1 88.  86.4 89.  77.2 85.5 85.1 91.8]
+================Task 9 Start!================
+Trainable Parameters for Task 9 : 376330 / 86612836 (0.43%)
+================Task 9 Training!================
+The training samples number : 5000
+================Train on train set================
+Epoch [0/20] Learning Rate [0.0005, 0.005]	|	Loss: 0.6242 	Average Acc: 93.24 
+================Train on train set================
+Epoch [1/20] Learning Rate [0.0004969220851487844, 0.0049692208514878445]	|	Loss: 0.1832 	Average Acc: 94.36 
+================Train on train set================
+Epoch [2/20] Learning Rate [0.0004877641290737884, 0.0048776412907378846]	|	Loss: 0.1761 	Average Acc: 94.68 
+================Train on train set================
+Epoch [3/20] Learning Rate [0.00047275163104709196, 0.00472751631047092]	|	Loss: 0.1729 	Average Acc: 95.18 
+================Train on train set================
+Epoch [4/20] Learning Rate [0.0004522542485937369, 0.004522542485937369]	|	Loss: 0.1684 	Average Acc: 95.28 
+================Train on train set================
+Epoch [5/20] Learning Rate [0.00042677669529663686, 0.004267766952966369]	|	Loss: 0.1687 	Average Acc: 94.98 
+================Train on train set================
+Epoch [6/20] Learning Rate [0.0003969463130731183, 0.003969463130731183]	|	Loss: 0.1431 	Average Acc: 95.86 
+================Train on train set================
+Epoch [7/20] Learning Rate [0.00036349762493488667, 0.0036349762493488673]	|	Loss: 0.1557 	Average Acc: 95.50 
+================Train on train set================
+Epoch [8/20] Learning Rate [0.00032725424859373687, 0.003272542485937369]	|	Loss: 0.1582 	Average Acc: 95.42 
+================Train on train set================
+Epoch [9/20] Learning Rate [0.00028910861626005774, 0.0028910861626005777]	|	Loss: 0.1334 	Average Acc: 95.94 
+================Train on train set================
+Epoch [10/20] Learning Rate [0.00025, 0.0025]	|	Loss: 0.1371 	Average Acc: 95.90 
+================Train on train set================
+Epoch [11/20] Learning Rate [0.00021089138373994235, 0.0021089138373994237]	|	Loss: 0.1285 	Average Acc: 95.86 
+================Train on train set================
+Epoch [12/20] Learning Rate [0.00017274575140626317, 0.0017274575140626318]	|	Loss: 0.1302 	Average Acc: 95.96 
+================Train on train set================
+Epoch [13/20] Learning Rate [0.00013650237506511331, 0.0013650237506511332]	|	Loss: 0.1141 	Average Acc: 96.36 
+================Train on train set================
+Epoch [14/20] Learning Rate [0.00010305368692688174, 0.0010305368692688174]	|	Loss: 0.1000 	Average Acc: 96.86 
+================Train on train set================
+Epoch [15/20] Learning Rate [7.322330470336313e-05, 0.0007322330470336313]	|	Loss: 0.1001 	Average Acc: 96.58 
+================Train on train set================
+Epoch [16/20] Learning Rate [4.774575140626316e-05, 0.00047745751406263163]	|	Loss: 0.1096 	Average Acc: 96.46 
+================Train on train set================
+Epoch [17/20] Learning Rate [2.7248368952908048e-05, 0.00027248368952908055]	|	Loss: 0.1172 	Average Acc: 96.18 
+================Train on train set================
+Epoch [18/20] Learning Rate [1.2235870926211616e-05, 0.00012235870926211617]	|	Loss: 0.0834 	Average Acc: 97.44 
+================Train on train set================
+Epoch [19/20] Learning Rate [3.077914851215585e-06, 3.077914851215585e-05]	|	Loss: 0.1044 	Average Acc: 96.50 
+================Validation on test set================
+ * [Batch] Last Average Acc: 85.12 (Best: 85.12)
+ * [Task] Last Average Acc: 85.12 (Best: 85.12)
+ * Forgetting: 5.700 (Best: 5.700)
+ * Backward Transfer: -4.26 (Best: -4.26)
+ * Per-Task Acc: [93.6, 79.8, 87.8, 83.8, 85.2, 75.2, 84.3, 83.1, 88.7, 89.7]
+================Test 1/1 of Task 9!================
+ * [Batch] Last Average Acc: 85.12 (Best: 85.12)
+ * [Task] Last Average Acc: 85.12 (Best: 85.12)
+ * Forgetting: 5.700 (Best: 5.700)
+ * Backward Transfer: -4.26 (Best: -4.26)
+ * Per-Task Acc: [93.6, 79.8, 87.8, 83.8, 85.2, 75.2, 84.3, 83.1, 88.7, 89.7]
+================Result of Task 9 Testing!================
+ * [Batch] Last Average Acc: 85.12 (Best: 85.12)
+ * [Task] Last Average Acc: 85.12 (Best: 85.12)
+ * Forgetting: 5.700 (Best: 5.700)
+ * Backward Transfer: -4.26 (Best: -4.26)
+ * Per-Task Acc: [93.6 79.8 87.8 83.8 85.2 75.2 84.3 83.1 88.7 89.7]
+================Overall Result of 10 Tasks!================
+ * [Batch] Last Average Acc: 85.12 (Best: 85.12)
+ * [Task] Last Average Acc: 85.12 (Best: 85.12)
+ * Forgetting: 5.700 (Best: 5.700)
+ * Backward Transfer: -4.26 (Best: -4.26)
+ * [Batch] Overall Avg Acc : 90.64 (Best: 90.64)
+ * [Task] Overall Avg Acc : 90.64
+ * Overall Frgt : 3.823
+ * Overall BwT : -2.85
+ * Average Acc Table : 
+[[99.3  0.   0.   0.   0.   0.   0.   0.   0.   0. ]
+ [98.5 93.5  0.   0.   0.   0.   0.   0.   0.   0. ]
+ [97.4 91.1 93.8  0.   0.   0.   0.   0.   0.   0. ]
+ [96.9 88.1 93.3 92.4  0.   0.   0.   0.   0.   0. ]
+ [96.  84.9 91.2 90.4 91.6  0.   0.   0.   0.   0. ]
+ [95.5 83.8 90.4 88.7 91.2 79.4  0.   0.   0.   0. ]
+ [94.8 81.2 89.5 87.8 91.  78.5 88.8  0.   0.   0. ]
+ [94.2 80.8 88.6 87.6 90.4 77.8 87.2 85.3  0.   0. ]
+ [93.9 80.1 88.  86.4 89.  77.2 85.5 85.1 91.8  0. ]
+ [93.6 79.8 87.8 83.8 85.2 75.2 84.3 83.1 88.7 89.7]]
+================Model Performance Analysis================
+ * Time Costs : 52960.62 sec
+ * Average FPS (Best FPS) : 23 (29)
